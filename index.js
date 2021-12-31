@@ -13,6 +13,8 @@ app.use(
 
 app.use(bodyParser.json());
 
+const timer = require("timers");
+
 app.listen(3001, function () {
   console.log("App listening on port 3001.");
 
@@ -79,5 +81,3 @@ function postMessage(count) {
       });
   });
 }
-
-const timer = require("timers");
