@@ -28,6 +28,10 @@ app.post("/", function (req, res) {
     return res.json({
       text: "sleeping...",
     });
+  } else {
+    return res.json({
+      text: "khalid testing...",
+    });
   }
 });
 
