@@ -17,14 +17,15 @@ const timer = require("timers");
 
 app.listen(3001, function () {
   console.log("App listening on port 3001.");
-});
 
-app.post("/", function (req, res) {
-  console.log("someone pinged @");
   let count = 0;
   timer.setInterval(function () {
     postMessage((count += 1));
   }, 60000);
+});
+
+app.post("/", function (req, res) {
+  console.log("someone pinged @");
   if (req.body.type === "MESSAGE") {
     return res.json({
       text: "sleeping...",
