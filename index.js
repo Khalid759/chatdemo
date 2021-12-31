@@ -13,13 +13,20 @@ app.use(
 
 app.use(bodyParser.json());
 
-app.listen(8100, function () {
-  console.log("App listening on port 8100.");
+app.listen(3001, function () {
+  console.log("App listening on port 3001.");
+
+  let count = 0;
+  timer.setInterval(function () {
+    postMessage((count += 1));
+  }, 60000);
 });
 
 app.post("/", function (req, res) {
   console.log("someone pinged @");
-
+  return res.json({
+    text: "sleeping...",
+  });
   if (req.body.type === "MESSAGE") {
     return res.json({
       text: "sleeping...",
@@ -73,12 +80,3 @@ function postMessage(count) {
 }
 
 const timer = require("timers");
-
-app.listen(3001, function () {
-  console.log("App listening on port 3001.");
-
-  let count = 0;
-  timer.setInterval(function () {
-    postMessage((count += 1));
-  }, 60000);
-});
