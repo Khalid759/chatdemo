@@ -24,9 +24,6 @@ app.listen(3001, function () {
 
 app.post("/", function (req, res) {
   console.log("someone pinged @");
-  return res.json({
-    text: "sleeping...",
-  });
   if (req.body.type === "MESSAGE") {
     return res.json({
       text: "sleeping...",
